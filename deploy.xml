@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploydescriptor>
+	<global>
+		<version>100</version>
+		<id>ApplicationProgramming</id>
+		<vendor>Ontoprise GmbH</vendor>
+		<instdir>extensions/ApplicationProgramming</instdir>
+		<description>
+			Provides utility functionality for wikitext-programming
+		</description>
+
+	</global>
+	<codefiles>
+		<file loc="extensions/ApplicationProgramming/deploy.xml" />
+		<!-- TODO: add others -->
+	</codefiles>
+	<wikidumps>
+		<!-- empty -->
+	</wikidumps>
+	<resources>
+		<!-- empty -->
+	</resources>
+	<configs>
+	    <successor>smw</successor>
+		<new>
+			<require name="pf"
+				file="extensions/ApplicationProgramming/ParserFunctions/ParserFunctions.php" />
+			<require name="sf"
+				file="extensions/ApplicationProgramming/StringFunctions/StringFunctions.php" />
+			<require name="urlarg"
+				file="extensions/ApplicationProgramming/URLArguments/URLArguments.php" />
+			<require name="variables"
+				file="extensions/ApplicationProgramming/Variables/Variables.php" />
+		</new>
+	</configs>
+</deploydescriptor>
