@@ -2,6 +2,7 @@
 <deploydescriptor>
 	<global>
 		<version>103</version>
+		<patchlevel>1</patchlevel>
 		<id>ApplicationProgramming</id>
 		<vendor>ontoprise GmbH</vendor>
 		<maintainer>ontoprise GmbH</maintainer>

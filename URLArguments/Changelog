@@ -1,7 +1,13 @@
 URLArguments extension ChangeLog
 ================================
 
-VERSION 1.5.2
+Version 1.0.3 Patchlevel 1
+
+  BUGFIXES: (Bug numbers according to http://smwforum.ontoprise.com/smwbugs/)
+	15565 - URLArguments extension sends many corrupted commands to memcache
+
+
+VERSION 1.0.3
 
   FEATURE:
   	

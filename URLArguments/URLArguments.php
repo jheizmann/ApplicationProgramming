@@ -9,13 +9,13 @@
  
  Author: Thomas Schweitzer
          based on: Algorithm [http://meta.wikimedia.org/wiki/User:Algorithm]
- Version 1.0 (10/3/09)
+ Version 1.0.3 patchlevel 1 (5.9.2011)
 */
  
 $wgExtensionFunctions[] = 'wfURLArguments';
 $wgExtensionCredits['parserhook'][] = array(
 	'name' => 'URL Arguments',
-	'version' => '1.0',
+	'version' => '1.0.3_1',
 	'url' => 'http://smwforum.ontoprise.com/smwforum/index.php/Help:Application_Programming_extension',
 	'author' => 'Thomas Schweitzer. Owned by [http://www.ontoprise.de ontoprise GmbH].',   
 	'description' => 'Defines the new parser function "arg" that retrieves arguments from the URL of the current article. These values can be used in the wikitext of the article.'
@@ -50,10 +50,11 @@ function wfURLArgumentsLanguageGetMagic( &$magicWords, $langCode ) {
 function wfURLArgumentsPageRenderingHash($hash) {
 
 	global $wgRequest;
-	$urlArgs = $wgRequest->getValues();
+	//$wgRequest->getValues();
+	$urlArgs = $_GET;
 	ksort($urlArgs);
 	$hash .= "!args=";
-	$ignoreArgs = array("action", "submit");
+	$ignoreArgs = array("action", "submit", "title");
     foreach ($urlArgs as $key => $value) {
     	if (!in_array($key, $ignoreArgs)) {
 			$hash .= "$key+$value+";
@@ -67,8 +68,9 @@ function wfURLArgumentsPageRenderingHash($hash) {
 class ExtURLArguments {
  
 	function arg( &$parser, $name = '', $default = '' ) {
-		global $wgRequest;
-		return $wgRequest->getVal($name, $default);
+//		global $wgRequest;
+//		return $wgRequest->getVal($name, $default);
+		return (isset($_GET[$name])) ? $_GET[$name] : $default;		
 	}
 }
 
